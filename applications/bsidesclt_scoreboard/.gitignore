@@ -1,0 +1,6 @@
+!/databases
+!/errors
+!/sessions
+*.pyc
+*.wpr
+*.wpu
