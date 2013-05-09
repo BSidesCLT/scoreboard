@@ -17,8 +17,9 @@ db.define_table('t_challenges_archive',db.t_challenges,Field('current_record','r
 
 ########################################
 db.define_table('t_submissions',
+	Field('f_challenge', 'reference t_challenges', label=T('Challenge')),
     Field('f_solution', type='string',
-          label=T('Solution')),
+		label=T('Solution')),
     auth.signature,
     format='%(f_solution)s',
     migrate=settings.migrate)

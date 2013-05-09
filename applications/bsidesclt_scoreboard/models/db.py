@@ -45,6 +45,8 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 
 db.define_table(
     auth.settings.table_user_name,
+    Field('first_name', length=128, default='', readable=False, writable=False),
+    Field('last_name', length=128, default='', readable=False, writable=False),
     Field('username', length=128, default=''),
     Field('email', length=128, default='', unique=True), # required
     Field('password', 'password', length=512,            # required
@@ -109,3 +111,5 @@ use_janrain(auth, filename='private/janrain.key')
 mail.settings.server = settings.email_server
 mail.settings.sender = settings.email_sender
 mail.settings.login = settings.email_login
+
+crud.settings.auth = auth
